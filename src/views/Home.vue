@@ -6,15 +6,26 @@
       placeholder="Search meal by name"
     />
     <div>
-      <router-link to="/" v-for="letter of letters">{{ letter }}</router-link>
+      <router-link
+        v-for="letter of letters"
+        :key="letter"
+        :to="{ name: 'byLetter', params: { letter } }"
+        >{{ letter }}
+      </router-link>
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed } from "vue";
-import store from "../store";
+import { computed, onMounted } from "vue";
 
-const meals = computed(() => store.state.meals);
+import store from "../store";
+import axiosClient from "../axiosClient.js";
+
 const letters = "ABCDEFJHIJKLMNOPQRSTUWXYZ".split("");
+
+onMounted(async () => {
+  const response = await axiosClient.get("/list.php?i=list");
+  console.log(response.data);
+});
 </script>

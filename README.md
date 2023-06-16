@@ -2,7 +2,7 @@
 
 ## Intro
 
-live version:`https://cli.vuejs.org/guide/deployment.html#vercel`
+live version:`https://meal-vue.vercel.app/`
 
 ## Tech stacks
 

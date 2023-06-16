@@ -19,7 +19,7 @@
         <h2 class="text-2xl font-semibold mb-2">Ingredients</h2>
         <ul>
           <template v-for="(el, ind) of new Array(20)">
-            <li v-if="meal[`strIngredient${ind + 1}`]">
+            <li v-if="meal[`strIngredient${ind + 1}`]" v-bind:key="ind">
               {{ ind + 1 }}. {{ meal[`strIngredient${ind + 1}`] }}
             </li>
           </template>
@@ -29,7 +29,7 @@
         <h2 class="text-2xl font-semibold mb-2">Measures</h2>
         <ul>
           <template v-for="(el, ind) of new Array(20)">
-            <li v-if="meal[`strMeasure${ind + 1}`]">
+            <li v-if="meal[`strMeasure${ind + 1}`]" v-bind:key="ind">
               {{ ind + 1 }}. {{ meal[`strMeasure${ind + 1}`] }}
             </li>
           </template>
@@ -53,7 +53,6 @@
 import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 import axiosClient from "../axiosClient";
-import YouTubeButton from "../components/YouTubeButton.vue";
 
 const route = useRoute();
 const meal = ref({});

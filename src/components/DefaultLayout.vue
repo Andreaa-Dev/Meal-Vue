@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NavBar />
+    <MenuBar />
     <main>
       <div class="max-w-[1200px] mx-auto">
         <router-view />
@@ -10,5 +10,5 @@
 </template>
 
 <script setup>
-import NavBar from "./NavBar.vue";
+import MenuBar from "./MenuBar.vue";
 </script>
